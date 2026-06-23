@@ -727,6 +727,7 @@
 			<!--Suspicious sources-->
 			<Image name="Suspicious,ImageBeginWithBackslash" condition="end with">regedit.exe</Image> <!--Users and helpdesk staff making system modifications -->
 			<Image name="Suspicious,ImageBeginWithBackslash" condition="begin with">\</Image> <!--Devices and VSC shouldn't be executing changes | Credit: @SBousseaden @ionstorm @neu5ron @PerchedSystems [ https://twitter.com/SwiftOnSecurity/status/1133167323991486464 ] -->
+			<TargetObject name="T1204,ClickFix-RunMRU" condition="contains">\Explorer\RunMRU</TargetObject>
 		</RegistryEvent>
 	</RuleGroup>
 
@@ -795,7 +796,6 @@
 			<TargetObject condition="begin with">HKCR\iTunes.</TargetObject> <!--Apple: iTunes update noise-->
 			<!--WINEVT publishers noise-->
 			<TargetObject condition="is">HKLM\Software\Microsoft\Windows\CurrentVersion\WINEVT\Publishers\{945a8954-c147-4acd-923f-40c45405a658}</TargetObject> <!--Windows update-->
-      <TargetObject name="T1204,ClickFix-RunMRU" condition="contains">\Explorer\RunMRU</TargetObject>
 		</RegistryEvent>
 	</RuleGroup>
 
